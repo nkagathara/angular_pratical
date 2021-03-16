@@ -1,0 +1,35 @@
+
+<button (click)="addNewContact()"  class="btn btn-default add_button">Add New Contact</button>
+<div class="form-group" class="search">
+    <!-- <label for="search-text">Search Text</label> -->
+    <input type="email" class="form-control" #tagInput aria-describedby="search-text" 
+      [(ngModel)]="searchText" placeholder="Enter text to search" 
+      autofocus>
+  </div>
+<table *ngIf="isGetContactList">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Mobile Number</th>
+      <th>Email</th>
+      <th>Note</th>
+      <th>Profile Pic</th>
+      <th>Birthday</th>
+      <th>Edit</th>
+      <th>Remove</th>
+    </tr>
+    <tr *ngFor="let item of getContactList | appFilter: searchText">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.mobile_number}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.note}}</td>
+      <td>{{item.src}}</td>
+      <td>{{item.birth_date| date : medium}}</td>
+      <td><button (click)="editContact(item)">Edit</button></td>
+      <td><button (click)="removeContact(item)">Remove</button></td>
+    </tr>
+</table>
+<table class="no-data-section" *ngIf="!isGetContactList">
+    <span class="no-data-text">There is no contact in list.</span>
+</table>

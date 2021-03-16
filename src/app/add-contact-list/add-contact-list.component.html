@@ -1,0 +1,36 @@
+
+<div class="container">
+    <h2>Add contact form</h2>
+    <button class="btn btn-default" (click)="backBtn()">Back</button>
+    <form name="addContactForm" [formGroup]="addContactForm">
+      <div class="form-group">
+        <label for="id">Id:</label>
+        <input type="number" class="form-control" id="id" placeholder="Please enter unique value" name="id" formControlName="id" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="name" class="form-control" id="name" placeholder="Enter name" name="name" formControlName="name" required>
+      </div>
+      <div class="form-group">
+        <label for="mobile">Mobile Number:</label>
+        <input type="number" class="form-control" id="mobile" placeholder="Enter mobile" name="mobile" formControlName="mobile_number" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" formControlName="email" required>
+      </div>
+      <div class="form-group">
+        <label for="note">Note:</label>
+        <input type="text" class="form-control" id="note" placeholder="Enter note" name="note" formControlName="note" required>
+      </div>
+      <div class="form-group">
+        <label for="src">Src:</label>
+        <input type="text" class="form-control" id="src" placeholder="Enter src path" name="src" formControlName="src" required>
+      </div>
+      <div class="form-group">
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday" formControlName="birth_date" required>
+      </div>
+      <button [disabled]='addContactForm.invalid' (click)="addData()" type="submit" class="btn btn-default">Add</button>
+    </form>
+</div>
