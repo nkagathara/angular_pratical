@@ -50,6 +50,7 @@ export class EditContactListComponent implements OnInit {
   formInint() {
     if(Object.keys(this.editContactData).length ){
       this.editContactForm = this._formBuilder.group({
+        id: new FormControl(this.editContactData.id, Validators.required),
         name: new FormControl(this.editContactData.name, Validators.required),
         mobile_number: new FormControl(this.editContactData.mobile_number, Validators.required),
         email: new FormControl(this.editContactData.email, Validators.required),

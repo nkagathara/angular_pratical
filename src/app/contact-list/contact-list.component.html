@@ -1,6 +1,6 @@
 
 <button (click)="addNewContact()"  class="btn btn-default add_button">Add New Contact</button>
-<div class="form-group" class="search">
+<div class="form-group" class="search" *ngIf="isGetContactList">
     <!-- <label for="search-text">Search Text</label> -->
     <input type="email" class="form-control" #tagInput aria-describedby="search-text" 
       [(ngModel)]="searchText" placeholder="Enter text to search" 
